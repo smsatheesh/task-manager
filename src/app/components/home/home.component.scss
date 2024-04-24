@@ -1,0 +1,23 @@
+.sidebar-navigation {
+    background-color: red;
+    width: 13em;
+    margin-left: auto;
+}
+
+.expanded-container {
+    width: calc( 100% - 260px );
+}
+
+.main-container {
+    min-height: calc( 100% - 13% );
+    padding: 0;
+    background-color: white;
+}
+
+.app-icon {
+    height: 100%;
+    border-radius: 10rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
