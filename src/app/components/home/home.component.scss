@@ -1,17 +1,10 @@
-.sidebar-navigation {
-    background-color: red;
-    width: 13em;
-    margin-left: auto;
-}
-
 .expanded-container {
-    width: calc( 100% - 260px );
+    width: calc( 100% - 15% );
 }
 
 .main-container {
-    min-height: calc( 100% - 13% );
+    min-height: calc(100vh - 100px);
     padding: 0;
-    background-color: white;
 }
 
 .app-icon {
@@ -19,5 +12,37 @@
     border-radius: 10rem;
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    width: 30%;
+}
+
+.fixed-menu {
+    background-color: #543310 !important;
+    width: 15%;
+}
+
+.top-menu {
+    width: 85%;
+    margin-left: auto;
+    height: 40%;
+    padding: 0;
+    margin: 0;
+}
+
+.top-menu-toolbar {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 0;
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: large;
+}
+
+.home-sidebar {
+    background-color: #543310 !important;
+    border: 1px solid #543310;
+    color: white !important;
+    font-weight: bold;
+    font-size: medium;
 }

@@ -16,7 +16,7 @@ export class MiniAppsService {
                 field: "title",
                 type: 'text'
             }
-        ]
+        ];
     }
 
     public getTasksListsValues(): any {
@@ -25,6 +25,25 @@ export class MiniAppsService {
                 id: 1,
                 title: "Checking..."
             }
-        ]
+        ];
+    }
+
+    public getTaskCompletedListColumns(): Array<ColumnModel> {
+        return[
+            {
+                name: "Task Title",
+                field: "title",
+                type: "text"
+            }
+        ];
+    }
+
+    public getTaskCompletedListsValues(): any {
+        return [
+            {
+                id: 2,
+                title: "Un checking.."
+            }
+        ];
     }
 }

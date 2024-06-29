@@ -1,9 +1,9 @@
-<div class='calendar-app'>
+<div class="calendar-app">
 
     <div class='calendar-app-sidebar'>
         <div class='calendar-app-sidebar-section'>
             <h2>Instructions</h2>
-            <ul>
+            <ul class="list-item-parent">
             <li class="list-items">Select dates and you will be prompted to create a new event</li>
             <li class="list-items">Drag, drop, and resize events</li>
             <li class="list-items">Click an event to delete it</li>
@@ -31,10 +31,10 @@
         </div>
         <div class='calendar-app-sidebar-section'>
             <h2>All Events ({{ currentEvents.length }})</h2>
-            <ul>
+            <ul class="list-item-parent">
             <li *ngFor='let event of currentEvents()'>
-                <b>{{event.startStr}}</b>
-                <i>{{event.title}}</i>
+                <b>{{ event.startStr }}</b>
+                <i>{{ event.title }}</i>
             </li>
             </ul>
         </div>

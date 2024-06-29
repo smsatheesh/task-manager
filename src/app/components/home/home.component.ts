@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
 import { Sidebar } from 'primeng/sidebar';
 import { BaseComponent } from 'src/app/shared/base.component';
@@ -7,13 +7,12 @@ import { BaseComponent } from 'src/app/shared/base.component';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [ MessageService ]
+  providers: [ MessageService ],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class HomeComponent extends BaseComponent {
 
-  @ViewChild( 'sidebarNav' ) sideBar: Sidebar;
-  public sidebarVisible: any = true;
   public items: MenuItem[];
 
   constructor() {
@@ -45,10 +44,20 @@ export class HomeComponent extends BaseComponent {
           },
           {
             label: "Tasks",
-            icon: "pi pi-check",
+            icon: "pi pi-check-square",
             routerLink: [ "/home/apps/tasks" ]
+          },
+          {
+            label: "Kanban",
+            icon: "pi pi-fw pi-sliders-v",
+            routerLink: [ "/home/apps/kanban" ]
           }
         ]
+      },
+      {
+        label: "User Management",
+        icon: "pi pi-user",
+        routerLink: [ "/home/users" ]
       }
     ];
   }

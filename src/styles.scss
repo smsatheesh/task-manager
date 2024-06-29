@@ -2,3 +2,31 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+
+.ul {
+    margin: 0;
+    padding: 0;
+}
+
+.p-tieredmenu .p-menuitem > .p-menuitem-content:hover .p-menuitem-link {
+    background-color: red;
+}
+
+.p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    color: white;
+}
+
+.p-tieredmenu .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
+    color: white;
+}
+
+.p-tieredmenu .p-menuitem.p-highlight > .p-menuitem-content {
+    color: white;
+    background-color: black;
+}

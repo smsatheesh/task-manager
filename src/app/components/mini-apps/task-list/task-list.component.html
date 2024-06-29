@@ -1,8 +1,8 @@
 <div class="p-grid">
     <p-card class="header-title" header="Task List">
         <p-card class="header-title" header="To Do">
-            <p-table [value]="rows" [(selection)]="selectTasks" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
-                (onRowSelect)="rowSelection($event)">
+            <p-table [value]="rowTasks" [(selection)]="selectedTasks" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
+                (onRowSelect)="onRowSelection($event)" (onRowUnselect)="onRowUnselection($event)">
                 <ng-template pTemplate="header">
                     <tr>
                         <th *ngFor="let col of columns" scope="col" class="{{ col.headerClass }}" 
@@ -21,5 +21,27 @@
                 </ng-template>
             </p-table>
         </p-card>
+    </p-card>
+
+    <p-card class="header-title" header="Task Completion List">
+        <p-table [value]="rowTaskCompletion" [(selection)]="selectedTaskCompleted" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
+            (onRowSelect)="onRowSelectionCompleted($event)" (onRowUnselect)="onRowUnselectionCompleted($event)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th *ngFor="let col of columnsCompletedTable" scope="col" class="{{ col.headerClass }}" 
+                        [ngStyle]="{ 'width': col.width }">
+                        <p>{{ col.name }}</p>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-row>
+                <tr>
+                    <td>
+                        <p-tableRadioButton [value]="row"></p-tableRadioButton>
+                    </td>
+                    <td>{{ row.title }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
     </p-card>
 </div>

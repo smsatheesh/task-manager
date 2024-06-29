@@ -4,7 +4,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import { INITIAL_EVENTS, createEventId } from './event-utils';
+import { INITIAL_EVENTS, createEventId } from '../../../../events/event-utils';
+import { BaseComponent } from 'src/app/shared/base.component';
 
 @Component({
     selector: "app-calander",
@@ -13,7 +14,7 @@ import { INITIAL_EVENTS, createEventId } from './event-utils';
     encapsulation: ViewEncapsulation.None
 })
 
-export class CalendarComponent {
+export class CalendarComponent extends BaseComponent {
 
     calendarVisible = signal( true );
     calendarOptions = signal<CalendarOptions>({
@@ -41,7 +42,13 @@ export class CalendarComponent {
     });
     currentEvents = signal<EventApi[]>([]);
 
-    constructor(private changeDetector: ChangeDetectorRef) { }
+    constructor(private changeDetector: ChangeDetectorRef) {
+        super();
+    }
+
+    async initComponent() {
+        
+    }
 
     handleCalendarToggle() {
         this.calendarVisible.update((bool) => !bool);
@@ -62,13 +69,13 @@ export class CalendarComponent {
         calendarApi.unselect();
 
         if (title) {
-        calendarApi.addEvent({
-            id: createEventId(),
-            title,
-            start: selectInfo.startStr,
-            end: selectInfo.endStr,
-            allDay: selectInfo.allDay
-        });
+            calendarApi.addEvent({
+                id: createEventId(),
+                title,
+                start: selectInfo.startStr,
+                end: selectInfo.endStr,
+                allDay: selectInfo.allDay
+            });
         }
     }
 

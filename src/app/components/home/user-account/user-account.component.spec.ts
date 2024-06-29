@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserOrganizationComponent } from './user-account.component';
+import { UserAccountComponent } from './user-account.component';
 
-describe('UserOrganizationComponent', () => {
-  let component: UserOrganizationComponent;
-  let fixture: ComponentFixture<UserOrganizationComponent>;
+describe('UserAccountComponent', () => {
+  let component: UserAccountComponent;
+  let fixture: ComponentFixture<UserAccountComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserOrganizationComponent]
+      declarations: [UserAccountComponent]
     });
-    fixture = TestBed.createComponent(UserOrganizationComponent);
+    fixture = TestBed.createComponent(UserAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

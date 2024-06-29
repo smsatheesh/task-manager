@@ -1,0 +1,94 @@
+<div class="p-grid">
+    <div class="p-col">
+        <p-card class="parent-card" [style]="{ 'background-color': 'black', 'width': '100%', 'height': '100%' }">
+
+            <ng-template pTemplate="header">
+                <h2>Back Log Details</h2>
+            </ng-template>
+
+            <ng-template pTemplate="body">
+                Body section...
+                <ng-template ngFor let-data [ngForOf]="backLogDetails">
+        
+                    <p-card class="child-card" [style]="{ 'background-color': 'black', 'margin': '2rem' }">
+                        <ng-template pTemplate="header">
+                            {{ data.title }}
+                            <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (onClick)="editCard( data )"></p-button>
+                        </ng-template>
+                        <ng-template pTemplate="body">
+                            {{ data.description }}
+                        </ng-template>
+                    </p-card>
+                </ng-template>
+        
+            </ng-template>
+            
+            <ng-template pTemplate="footer">
+                <p-button label="New Card" icon="pi pi-plus" severity="info" (onClick)="generateNewBackLogCard()">
+                </p-button>
+            </ng-template>
+        </p-card>
+    </div>
+
+    <div class="p-col">
+        <p-card header="Worklog" class="parent-card" [style]="{ 'background-color': 'black', 'width': '100%', 'height': '100%' }">
+            <ng-template pTemplate="body">
+                Body section...
+                
+                <ng-template ngFor let-data [ngForOf]="workLogDetails">
+        
+                    <p-card class="child-card" [style]="{ 'background-color': 'grey', 'margin': '2rem' }">
+                        <ng-template pTemplate="body">
+                            {{ data.description }}
+                        </ng-template>
+                    </p-card>
+                </ng-template>
+        
+            </ng-template>
+            
+            <ng-template pTemplate="footer">
+                <p-button label="New Card" icon="pi pi-plus" severity="info" (onClick)="generateNewWorkLogCard()">
+                </p-button>
+            </ng-template>
+        </p-card>
+    </div>
+
+    <!-- <div class="p-col" *ngFor="let col of columns; let idx=index">
+        <span *ngIf="dynamicCard.length > 0">
+            <div class="box">
+                <ng-template ngFor let-data [ngForOf]="dynamicCard[idx]">
+                    <p-card header="{{ data.title }}" [style]="{ 'background-color': 'black', 'width': '100%', 'height': '100%' }">
+
+                        <ng-template pTemplate="body">
+                            {{ data.description }}
+                        </ng-template>
+
+                        <ng-template pTemplate="footer">
+                            <p-button label="New Card" icon="pi pi-plus" severity="info" (onClick)="generateDynamicCardInternally(idx)">
+                            </p-button>
+                        </ng-template>
+
+                    </p-card>
+                </ng-template>
+            </div>
+        </span>
+    </div> -->
+
+    <!-- <p-button label="New List" severity="Primary" (onClick)="generateDynamicCard()">
+    </p-button> -->
+</div>
+
+<p-sidebar [(visible)]="sideBarEditable" position="right">
+
+    <ng-template pTemplate="header">
+        {{ clickedData.title }}
+    </ng-template>
+
+    <ng-template pTemplate="description">
+        {{ clickedData.description }}
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        Footer Content
+    </ng-template>
+</p-sidebar>

@@ -1,22 +1,26 @@
 <div class="p-grid">
-    <div class="p-col-12 p-grid">
-        <div class="p-col-2">
+    <div class="p-col-12 fixed-menu">
+        <div class="p-col-12">
             <img class="app-icon" src="../../../assets/img/dashboard-icon.jpg">
         </div>
+    </div>
+
+    <div class="p-col-12 top-menu">
+        <p-toolbar styleClass="top-menu-toolbar">
+            <div class="p-toolbar-group-start">
+                <span> Task Manager </span>
+            </div>
+        </p-toolbar>
     </div>
 </div>
 
 <div class="p-grid">
-    <div class="p-col-12 p-grid">
-        <div class="p-col-2">
-            <div class="sidebar-navigation">
-                <p-tieredMenu [model]="items"></p-tieredMenu>
-            </div>
-        </div>
-    
-        <div class="p-col-10 expanded-container main-container">
-            <router-outlet></router-outlet>
-        </div>
+    <div class="p-col-12 p-col-nogutter fixed-menu">
+        <p-tieredMenu [model]="items" styleClass="home-sidebar"></p-tieredMenu>
     </div>
-    <p-toast></p-toast>
+
+    <div class="p-col-12 expanded-container main-container">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>

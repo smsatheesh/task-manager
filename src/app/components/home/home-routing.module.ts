@@ -10,6 +10,8 @@ export const homeRoutes: Routes = [
     { path: "home", component: HomeComponent },
     { path: "dashboard", component: DashboardComponent, loadChildren: () => import( "./../dashboard/dashboard.module" ).then(x => x.DashboardModule )},
     { path: "apps", loadChildren: () => import( "./../mini-apps/mini-apps.module" ).then(x => x.MiniAppsModule )},
+    { path: "users", loadChildren: () => import( "./../user-management/user-management.module" ).then( x => x.UserManagementModule ) },
+
     { path: "**", redirectTo: "/page-not-found", pathMatch: "full" }
 ]
 

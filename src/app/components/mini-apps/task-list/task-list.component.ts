@@ -11,9 +11,11 @@ import { MiniAppsService } from 'src/app/shared/services/mini-apps.service';
 export class TaskListComponent extends BaseComponent {
 
   columns: any = [];
-  rows: any = [];
-  selectTasks: any;
-
+  rowTasks: any = [];
+  rowTaskCompletion: any = [];
+  selectedTasks: any;
+  selectedTaskCompleted: any;
+  columnsCompletedTable: any = [];
 
   constructor( private miniAppsService: MiniAppsService ) {
     super();
@@ -22,20 +24,44 @@ export class TaskListComponent extends BaseComponent {
   async initComponent() {
     
     this.loadColumns();
+    this.loadColumnsForCompletionTable();
     this.loadRows();
+    this.loadRowsForCompletedTable();
   }
 
   loadColumns(): void  {
-    this.columns = this.miniAppsService.getTaskListsColumns().map((value:ColumnModel) => {
+    this.columns = this.miniAppsService.getTaskListsColumns().map(( value:ColumnModel ) => {
+      return value;
+    });
+  }
+
+  loadColumnsForCompletionTable(): void {
+    this.columnsCompletedTable = this.miniAppsService.getTaskCompletedListColumns().map(( value: ColumnModel ) => {
       return value;
     });
   }
 
   async loadRows() {
-    this.rows = this.miniAppsService.getTasksListsValues();
+    this.rowTasks = this.miniAppsService.getTasksListsValues();
   }
 
-  async rowSelection( event: any ): Promise<void> {
-    console.log( "row selected" );
+  async loadRowsForCompletedTable() {
+    this.rowTaskCompletion = this.miniAppsService.getTaskCompletedListsValues();
+  }
+
+  async onRowSelection( event: any ): Promise<void> {
+    console.log( event["data"]["title"] + " row selected" );
+  }
+
+  async onRowUnselection( event: any ): Promise<void> {
+    console.log( event["data"]["title"] + " row unselected" );
+  }
+
+  async onRowSelectionCompleted( event: any ): Promise<void> {
+    console.log( event["data"]["title"] + " row selected" );
+  }
+
+  async onRowUnselectionCompleted( event: any ): Promise<void> {
+    console.log( event["data"]["title"] + " row unselected" );
   }
 }
