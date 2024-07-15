@@ -18,7 +18,8 @@
 
 .fixed-menu {
     background-color: #543310 !important;
-    width: 15%;
+    max-width: 15%;
+    min-height: 14vh;
 }
 
 .top-menu {
@@ -41,8 +42,9 @@
 
 .home-sidebar {
     background-color: #543310 !important;
-    border: 1px solid #543310;
+    border: none;
     color: white !important;
     font-weight: bold;
     font-size: medium;
+    margin: 6%;
 }
